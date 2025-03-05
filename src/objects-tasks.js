@@ -162,13 +162,14 @@ function sellTickets(/* queue */) {
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-  this.width = width;
-  this.height = height;
+  return {
+    width,
+    height,
+    getArea() {
+      return this.width * this.height;
+    },
+  };
 }
-
-Rectangle.prototype.getArea = function () {
-  return this.width * this.height;
-};
 
 /**
  * Returns the JSON representation of specified object
@@ -266,18 +267,8 @@ function sortCitiesArray(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(array, keySelector, valueSelector) {
-  return array.reduce((map, item) => {
-    const key = keySelector(item);
-    const value = valueSelector(item);
-
-    if (!map.has(key)) {
-      map.set(key, []);
-    }
-    map.get(key).push(value);
-
-    return map;
-  }, new Map());
+function group(/* array, keySelector, valueSelector */) {
+  throw new Error('Not implemented');
 }
 
 /**
